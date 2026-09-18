@@ -10,6 +10,8 @@ import { GeminiChatbot } from "./components/GeminiChatbot";
 import { ClassificationResult } from "./types";
 
 export default function App() {
+  type WorkspaceTab = "scan" | "result" | "impact";
+  const [activeTab, setActiveTab] = useState<WorkspaceTab>("scan");
   const [currentResult, setCurrentResult] = useState<ClassificationResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [history, setHistory] = useState<ClassificationResult[]>([]);
@@ -253,6 +255,7 @@ export default function App() {
       resultData.timestamp = Date.now();
 
       setCurrentResult(resultData);
+      setActiveTab("result");
       setHistory((prev) => [resultData, ...prev.slice(0, 19)]);
 
       const addedPoints = resultData.sustainabilityImpact?.ecoPoints || 25;
@@ -304,10 +307,48 @@ export default function App() {
       {/* Main Workspace Layout */}
       <main className="ecosort-workspace fresh-workspace flex-1 w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="fresh-layout max-w-6xl mx-auto">
-          <section className="fresh-stage">
-            <CameraScanner onAnalyze={handleAnalyze} isLoading={isLoading} />
+          <section className="fresh-stage fresh-stage-full">
+            <nav className="workspace-tabs" aria-label="EcoSort workspace">
+              <button
+                className={activeTab === "scan" ? "workspace-tab is-active" : "workspace-tab"}
+                onClick={() => setActiveTab("scan")}
+                type="button"
+              >
+                <span className="workspace-tab-index">01</span>
+                <span>
+                  <strong>Scan an item</strong>
+                  <small>Photo, camera, or text</small>
+                </span>
+              </button>
+              <button
+                className={activeTab === "result" ? "workspace-tab is-active" : "workspace-tab"}
+                onClick={() => setActiveTab("result")}
+                type="button"
+              >
+                <span className="workspace-tab-index">02</span>
+                <span>
+                  <strong>Sorting result</strong>
+                  <small>{currentResult ? "Your latest recommendation" : "Scan something first"}</small>
+                </span>
+              </button>
+              <button
+                className={activeTab === "impact" ? "workspace-tab is-active" : "workspace-tab"}
+                onClick={() => setActiveTab("impact")}
+                type="button"
+              >
+                <span className="workspace-tab-index">03</span>
+                <span>
+                  <strong>Impact & history</strong>
+                  <small>{history.length} items checked</small>
+                </span>
+              </button>
+            </nav>
 
-            {currentResult && (
+            {activeTab === "scan" && (
+              <CameraScanner onAnalyze={handleAnalyze} isLoading={isLoading} />
+            )}
+
+            {activeTab === "result" && currentResult && (
               <ResultCard
                 result={currentResult}
                 onOpenDeepThinkingForCurrent={handleOpenDeepThinkingForCurrent}
@@ -315,19 +356,28 @@ export default function App() {
                 onOpenChat={() => setIsChatOpen(true)}
               />
             )}
+
+            {activeTab === "result" && !currentResult && (
+              <div className="workspace-empty">
+                <span className="workspace-empty-mark">02</span>
+                <h2>No result yet</h2>
+                <p>Scan an item first and your sorting recommendation will appear here.</p>
+                <button type="button" onClick={() => setActiveTab("scan")}>Go to scanner</button>
+              </div>
+            )}
+
+            {activeTab === "impact" && (
+              <CampusDashboard
+                history={history}
+                onSelectHistoryItem={(item) => {
+                  setCurrentResult(item);
+                  setActiveTab("result");
+                }}
+                ecoPoints={ecoPoints}
+                divertedKg={divertedKg}
+              />
+            )}
           </section>
-          <aside className="fresh-rail">
-            <div className="fresh-rail-heading">
-              <span>SESSION SIGNAL</span>
-              <strong>{history.length} checks</strong>
-            </div>
-            <CampusDashboard
-              history={history}
-              onSelectHistoryItem={(item) => setCurrentResult(item)}
-              ecoPoints={ecoPoints}
-              divertedKg={divertedKg}
-            />
-          </aside>
         </div>
       </main>
 
