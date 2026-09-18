@@ -1,20 +1,32 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# EcoSort AI
 
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/a7786f42-e867-45f0-82a1-31841041ef8d
+AI-assisted waste classification and sustainability guidance for campuses and communities.
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
+**Prerequisites:** Node.js 22 or newer
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+   ```bash
+   npm install
+   ```
+2. Create a local environment file from the template:
+   ```bash
+   copy .env.example .env.local
+   ```
+3. Set `GEMINI_API_KEY` in `.env.local` for live Gemini classification. The app uses a fallback response when no key is configured.
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open http://localhost:3000.
+
+## Other commands
+
+```bash
+npm run lint   # Type-check the project
+npm run build  # Build the client and production server
+npm start      # Start the production server after building
+```
+
+Never commit `.env.local` or any file containing API keys.
