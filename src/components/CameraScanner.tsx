@@ -372,7 +372,7 @@ export const CameraScanner: React.FC<CameraScannerProps> = ({ onAnalyze, isLoadi
               id={`preset-${preset.id}`}
               type="button"
               onClick={() => handleSelectPreset(preset)}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs bg-slate-100/80 dark:bg-slate-800/80 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 hover:text-emerald-950 dark:hover:text-emerald-200 hover:border-emerald-200 dark:hover:border-emerald-800 border border-slate-200/80 dark:border-slate-700/80 text-slate-700 dark:text-slate-300 transition-all"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs bg-slate-100/80 dark:bg-slate-800/80 hover:bg-lime-100 dark:hover:bg-emerald-950/50 hover:text-emerald-950 dark:hover:text-emerald-200 hover:border-lime-300 dark:hover:border-emerald-800 border border-slate-200/80 dark:border-slate-700/80 text-emerald-950 dark:text-emerald-100 transition-all"
             >
               <img
                 src={preset.image}

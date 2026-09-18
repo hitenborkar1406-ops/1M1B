@@ -5,11 +5,9 @@ import { CameraScanner } from "./components/CameraScanner";
 import { ResultCard } from "./components/ResultCard";
 import { CampusDashboard } from "./components/CampusDashboard";
 import { DeepThinkingModal } from "./components/DeepThinkingModal";
-import { PresentationModal } from "./components/PresentationModal";
 import { NearbyDropOffModal } from "./components/NearbyDropOffModal";
 import { GeminiChatbot } from "./components/GeminiChatbot";
 import { ClassificationResult } from "./types";
-import { Award, Globe, FileText, BrainCircuit, Sparkles, CheckCircle2, MapPin, MessageSquare } from "lucide-react";
 
 export default function App() {
   const [currentResult, setCurrentResult] = useState<ClassificationResult | null>(null);
@@ -17,7 +15,6 @@ export default function App() {
   const [history, setHistory] = useState<ClassificationResult[]>([]);
   const [ecoPoints, setEcoPoints] = useState(85);
   const [divertedKg, setDivertedKg] = useState(1.42);
-  const [isPresentationOpen, setIsPresentationOpen] = useState(false);
   const [isDeepThinkingOpen, setIsDeepThinkingOpen] = useState(false);
   const [isDropOffOpen, setIsDropOffOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -290,62 +287,18 @@ export default function App() {
         divertedKg={divertedKg}
         theme={theme}
         onToggleTheme={handleToggleTheme}
-        onOpenPresentation={() => setIsPresentationOpen(true)}
-        onOpenDeepThinking={() => {
-          setDeepThinkingContext(currentResult?.itemName || "Campus Cafeteria Waste Stream");
-          setIsDeepThinkingOpen(true);
-        }}
-        onOpenDropOff={() => setIsDropOffOpen(true)}
         onOpenChat={() => setIsChatOpen(true)}
       />
 
-      {/* Hero SDG Alignment & Purpose Strip */}
-      <div className="ecosort-status-strip text-white py-4 px-4 sm:px-6 shadow-inner transition-colors duration-200">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
-          <div className="flex items-center gap-2.5">
-            <span className="px-2.5 py-1 rounded-md bg-white/10 dark:bg-emerald-500/20 font-mono font-bold text-emerald-300 border border-white/10 dark:border-emerald-500/30">
-              UN SDG 12
-            </span>
-            <span className="font-semibold text-white">
-              Target 12.5: Substantially reduce waste generation through source prevention, reduction & recycling
-            </span>
-          </div>
-          <div className="flex items-center gap-4 text-emerald-200 dark:text-emerald-300">
-            <button
-              onClick={() => setIsDropOffOpen(true)}
-              className="hover:text-white underline underline-offset-4 flex items-center gap-1 font-medium text-emerald-300 dark:text-emerald-400"
-            >
-              <MapPin className="w-3.5 h-3.5" />
-              Find Local Drop-off Hubs
-            </button>
-            <span className="hidden sm:inline opacity-60">•</span>
-            <button
-              onClick={() => setIsPresentationOpen(true)}
-              className="hover:text-white underline underline-offset-4 flex items-center gap-1 font-medium"
-            >
-              <FileText className="w-3.5 h-3.5" />
-              1M1B Slides & Deliverable
-            </button>
-            <span className="hidden sm:inline opacity-60">•</span>
-            <button
-              onClick={() => {
-                setDeepThinkingContext(currentResult?.itemName || "Campus Cafeteria Packaging");
-                setIsDeepThinkingOpen(true);
-              }}
-              className="hover:text-white underline underline-offset-4 flex items-center gap-1 font-medium text-amber-300 dark:text-amber-400"
-            >
-              <BrainCircuit className="w-3.5 h-3.5" />
-              High Thinking Mode (Gemini 3.1 Pro)
-            </button>
-          </div>
+      <div className="ecosort-status-strip text-white px-4 sm:px-6 py-2.5">
+        <div className="max-w-5xl mx-auto text-center text-xs sm:text-sm font-medium">
+          Identify it. Sort it correctly. Keep useful materials in circulation.
         </div>
       </div>
 
       {/* Main Workspace Layout */}
       <main className="ecosort-workspace flex-1 w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          {/* Left Column (Scanner & Active Result) - 7 cols on lg */}
-          <div className="lg:col-span-7 space-y-6">
+        <div className="max-w-5xl mx-auto space-y-6">
             <CameraScanner onAnalyze={handleAnalyze} isLoading={isLoading} />
 
             {currentResult && (
@@ -356,98 +309,18 @@ export default function App() {
                 onOpenChat={() => setIsChatOpen(true)}
               />
             )}
-          </div>
-
-          {/* Right Column (Campus Dashboard & Project Info) - 5 cols on lg */}
-          <div className="lg:col-span-5 space-y-6">
             <CampusDashboard
               history={history}
               onSelectHistoryItem={(item) => setCurrentResult(item)}
               ecoPoints={ecoPoints}
               divertedKg={divertedKg}
             />
-
-            {/* Quick 1M1B Framework Card */}
-            <div className="ecosort-panel framework-panel bg-white dark:bg-slate-900 rounded-2xl p-5 space-y-4 transition-colors duration-200">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-200/50 dark:border-emerald-800/60 flex items-center justify-center font-bold text-xs">
-                    1M1B
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100">
-                      Internship Problem Statement
-                    </h4>
-                    <span className="text-[11px] text-slate-500 dark:text-slate-400">In collaboration with IBM SkillsBuild</span>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setIsPresentationOpen(true)}
-                  className="text-xs font-semibold text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300"
-                >
-                  Expand Full
-                </button>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/70 text-xs text-slate-800 dark:text-slate-200 italic leading-relaxed">
-                "How might we use multimodal AI to identify and categorize daily consumer/campus waste so that students and households can correctly segregate waste at the source and reduce landfill contamination?"
-              </div>
-
-              <div className="space-y-2 text-xs text-slate-600 dark:text-slate-300">
-                <div className="flex items-center gap-2 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>Multimodal Computer Vision with Gemini 3.8 Flash</span>
-                </div>
-                <div className="flex items-center gap-2 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>Deep LCA Thinking Mode with Gemini 3.1 Pro Preview</span>
-                </div>
-                <div className="flex items-center gap-2 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>Nearby Drop-off & Composting Locator (Map & List)</span>
-                </div>
-                <div className="flex items-center gap-2 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>Source Contamination Prevention Protocol</span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2 pt-1">
-                <button
-                  id="btn-open-dropoff-side"
-                  onClick={() => setIsDropOffOpen(true)}
-                  className="py-2.5 px-3 rounded-xl border border-emerald-300 dark:border-emerald-700/60 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 text-emerald-900 dark:text-emerald-300 font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
-                >
-                  <MapPin className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
-                  <span>Drop-off Hubs</span>
-                </button>
-
-                <button
-                  id="btn-open-presentation-side"
-                  onClick={() => setIsPresentationOpen(true)}
-                  className="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
-                >
-                  <Award className="w-3.5 h-3.5 text-amber-400" />
-                  <span>1M1B Slides</span>
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 mt-12 text-center text-xs text-slate-500 dark:text-slate-400 transition-colors duration-200">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div className="flex items-center gap-2 font-medium text-slate-700 dark:text-slate-300">
-            <span>EcoSort AI</span>
-            <span>•</span>
-            <span className="text-emerald-700 dark:text-emerald-400">Aligned with UN SDG 12 & SDG 11</span>
-          </div>
-          <div>
-            Built for 1M1B AI for Sustainability Virtual Internship & IBM SkillsBuild
-          </div>
-        </div>
+      <footer className="py-6 text-center text-xs text-slate-500 dark:text-slate-400">
+        EcoSort AI · Built for 1M1B AI for Sustainability
       </footer>
 
       {/* High Thinking Modal */}
@@ -455,12 +328,6 @@ export default function App() {
         isOpen={isDeepThinkingOpen}
         onClose={() => setIsDeepThinkingOpen(false)}
         defaultContextItem={deepThinkingContext}
-      />
-
-      {/* 1M1B Project Presentation Modal */}
-      <PresentationModal
-        isOpen={isPresentationOpen}
-        onClose={() => setIsPresentationOpen(false)}
       />
 
       {/* Nearby Drop-Off & Composting Finder */}
@@ -477,24 +344,6 @@ export default function App() {
         currentItem={currentResult}
       />
 
-      {/* Floating Gemini Chat Launcher Button */}
-      <div className="fixed bottom-6 right-6 z-40">
-        <button
-          id="btn-floating-gemini-chat"
-          onClick={() => setIsChatOpen(true)}
-          className="group relative flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-bold text-sm shadow-lg shadow-emerald-700/30 hover:shadow-emerald-600/40 hover:scale-105 transition-all duration-200 border border-emerald-400/30"
-          title="Chat with EcoSort AI (Multi-Turn Gemini)"
-        >
-          <div className="relative">
-            <MessageSquare className="w-5 h-5 text-white" />
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-amber-400 ring-2 ring-emerald-700 animate-pulse" />
-          </div>
-          <span className="hidden sm:inline">Ask EcoBot</span>
-          <span className="px-1.5 py-0.5 rounded-md text-[10px] bg-white/20 text-emerald-100 font-mono">
-            Gemini
-          </span>
-        </button>
-      </div>
     </div>
   );
 }

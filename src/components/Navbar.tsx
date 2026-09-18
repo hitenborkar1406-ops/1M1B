@@ -1,14 +1,11 @@
 import React from "react";
-import { Recycle, Award, FileText, BrainCircuit, Globe, Sparkles, MapPin, Sun, Moon, MessageSquare } from "lucide-react";
+import { Recycle, Globe, Sun, Moon, MessageSquare } from "lucide-react";
 
 interface NavbarProps {
   ecoPoints: number;
   divertedKg: number;
   theme: "light" | "dark";
   onToggleTheme: () => void;
-  onOpenPresentation: () => void;
-  onOpenDeepThinking: () => void;
-  onOpenDropOff: () => void;
   onOpenChat: () => void;
 }
 
@@ -17,9 +14,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   divertedKg,
   theme,
   onToggleTheme,
-  onOpenPresentation,
-  onOpenDeepThinking,
-  onOpenDropOff,
   onOpenChat,
 }) => {
   return (
@@ -40,24 +34,14 @@ export const Navbar: React.FC<NavbarProps> = ({
                 SDG 12 Aligned
               </span>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 hidden md:block">
-              1M1B & IBM SkillsBuild AI for Sustainability Prototype
-            </p>
           </div>
         </div>
 
         {/* Action Controls & Metrics */}
         <div className="flex items-center gap-2 sm:gap-2.5">
-          {/* Eco Points Counter */}
           <div className="flex items-center gap-2 sm:gap-3 bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/60 rounded-xl px-2.5 sm:px-3 py-1.5 text-xs transition-colors">
-            <div className="flex items-center gap-1.5 text-emerald-800 dark:text-emerald-300 font-semibold">
-              <Award className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              <span>{ecoPoints} pts</span>
-            </div>
-            <div className="w-px h-3 bg-emerald-200 dark:bg-emerald-800/80 hidden sm:block" />
-            <div className="text-slate-600 dark:text-slate-400 hidden sm:block">
-              <span className="font-medium text-slate-900 dark:text-slate-200">{divertedKg.toFixed(2)} kg</span> diverted
-            </div>
+            <span className="font-semibold text-emerald-800 dark:text-emerald-300">{ecoPoints} eco-points</span>
+            <span className="hidden sm:inline text-slate-600 dark:text-slate-400">{divertedKg.toFixed(2)} kg diverted</span>
           </div>
 
           {/* Gemini AI Chatbot Launcher */}
@@ -70,42 +54,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             <MessageSquare className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
             <span className="hidden sm:inline">AI Chat</span>
             <span className="sm:hidden">Chat</span>
-            <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-slate-900 animate-ping" />
-          </button>
-
-          {/* Find Nearby Drop-off */}
-          <button
-            id="btn-dropoff-nav"
-            onClick={onOpenDropOff}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-200 dark:border-emerald-800/60 transition-colors shadow-2xs"
-            title="Find Nearby Recycling & Composting Drop-off Hubs"
-          >
-            <MapPin className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-            <span className="hidden md:inline">Find Drop-off</span>
-            <span className="md:hidden">Drop-off</span>
-          </button>
-
-          {/* Deep Thinking Mode Action */}
-          <button
-            id="btn-deep-thinking-nav"
-            onClick={onOpenDeepThinking}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/40 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 border border-indigo-200 dark:border-indigo-800/60 transition-colors shadow-2xs"
-            title="High Thinking Mode powered by Gemini 3.1 Pro"
-          >
-            <BrainCircuit className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-            <span className="hidden lg:inline">Deep LCA Audit</span>
-            <span className="lg:hidden">LCA</span>
-          </button>
-
-          {/* 1M1B Project Slides/Report */}
-          <button
-            id="btn-project-report-nav"
-            onClick={onOpenPresentation}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 dark:from-emerald-600 dark:to-teal-600 shadow-sm shadow-emerald-700/20 transition-all hover:scale-[1.02]"
-          >
-            <FileText className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">1M1B Report</span>
-            <span className="sm:hidden">Report</span>
           </button>
 
           {/* Global Theme Toggle Button */}
