@@ -6,7 +6,7 @@
 :root {
   font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   color: #20262b;
-  background: #eef1ed;
+  background: #f4f7f8;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
@@ -18,7 +18,7 @@
 body {
   margin: 0;
   min-width: 320px;
-  background: #eef1ed;
+  background: #f4f7f8;
 }
 
 button,
@@ -39,58 +39,58 @@ textarea:focus-visible {
 }
 
 .ecosort-shell {
-  background: transparent !important;
-  color: #20262b !important;
+  background: #f4f7f8 !important;
+  color: #17252d !important;
 }
 
 .dark .ecosort-shell {
-  background: #131a1d !important;
-  color: #f4f6f1 !important;
+  background: #101a20 !important;
+  color: #edf5f4 !important;
 }
 
 .ecosort-nav {
-  background: #f7f8f4 !important;
-  border-bottom: 1px solid #c7cfca !important;
-  box-shadow: 0 8px 24px rgba(32, 38, 43, 0.06) !important;
+  background: rgba(244, 247, 248, 0.88) !important;
+  border-bottom: 1px solid #d9e3e6 !important;
+  box-shadow: none !important;
 }
 
 .dark .ecosort-nav {
-  background: #182124 !important;
-  border-color: #334147 !important;
+  background: rgba(16, 26, 32, 0.9) !important;
+  border-color: #2b3b43 !important;
 }
 
 .ecosort-brand-mark {
-  background: #d7f35f !important;
-  color: #20262b !important;
-  border-radius: 10px !important;
-  box-shadow: 4px 4px 0 #20262b !important;
+  background: #133d4a !important;
+  color: #bdeff0 !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
 }
 
 .ecosort-status-strip {
-  background: #20262b !important;
-  border-bottom: 4px solid #d7f35f !important;
+  background: #173b47 !important;
+  border-bottom: none !important;
 }
 
 .ecosort-workspace {
   max-width: 1440px !important;
-  padding-top: 30px !important;
-  padding-bottom: 56px !important;
+  padding-top: 34px !important;
+  padding-bottom: 44px !important;
 }
 
 .ecosort-panel {
-  border-radius: 10px !important;
-  border: 1px solid #c7cfca !important;
-  box-shadow: 6px 6px 0 rgba(32, 38, 43, 0.1) !important;
+  border-radius: 18px !important;
+  border: 1px solid #d9e3e6 !important;
+  box-shadow: 0 16px 40px rgba(28, 66, 77, 0.08) !important;
 }
 
 .dark .ecosort-panel {
-  border-color: #334147 !important;
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.28) !important;
+  border-color: #2b3b43 !important;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18) !important;
 }
 
 .ecosort-heading {
   font-family: "Archivo", ui-sans-serif, system-ui, sans-serif !important;
-  letter-spacing: -0.045em !important;
+  letter-spacing: -0.035em !important;
 }
 
 .ecosort-kicker {
@@ -102,40 +102,159 @@ textarea:focus-visible {
 }
 
 .scanner-surface {
-  background: #f7f8f4 !important;
-  border-top: 5px solid #d7f35f !important;
+  background: #ffffff !important;
+  border-top: none !important;
+  padding: 28px !important;
 }
 
 .dark .scanner-surface {
-  background: #182124 !important;
+  background: #17242a !important;
 }
 
 .scanner-dropzone {
-  background: #e9eee8 !important;
-  border: 2px dashed #9eaaa3 !important;
-  border-radius: 8px !important;
+  background: #f2f8f8 !important;
+  border: 1px dashed #94b9bd !important;
+  border-radius: 14px !important;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .dark .scanner-dropzone {
-  background: #202b2f !important;
-  border-color: #526169 !important;
+  background: #1d3038 !important;
+  border-color: #4a747c !important;
 }
 
 .scanner-dropzone:hover {
-  border-color: #20262b !important;
-  background: #e4edb1 !important;
+  border-color: #197783 !important;
+  background: #e8f7f7 !important;
 }
 
 .passport-result {
-  border-top: 5px solid #e64b3c !important;
+  border-top: 3px solid #e46b5d !important;
 }
 
 .ledger-panel {
-  border-top: 5px solid #3974a8 !important;
+  border-top: none !important;
 }
 
 .framework-panel {
-  border-top: 5px solid #e8c547 !important;
+  border-top: none !important;
+}
+
+.redesign-intro {
+  background: #173b47;
+  color: white;
+  padding-top: 54px;
+  padding-bottom: 58px;
+}
+
+.redesign-intro-inner {
+  padding-left: 1px;
+}
+
+.redesign-kicker {
+  color: #9de3e2;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.redesign-title {
+  max-width: 760px;
+  margin: 0;
+  font-family: "Archivo", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  font-weight: 600;
+}
+
+.redesign-subtitle {
+  max-width: 530px;
+  margin: 18px 0 0;
+  color: #cde4e5;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.redesign-workspace {
+  background: #f4f7f8 !important;
+}
+
+.dark .redesign-workspace {
+  background: #101a20 !important;
+}
+
+.redesign-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.redesign-primary,
+.redesign-secondary {
+  min-width: 0;
+}
+
+.redesign-primary {
+  display: grid;
+  gap: 24px;
+}
+
+.redesign-secondary {
+  display: grid;
+  gap: 14px;
+}
+
+.redesign-side-intro {
+  display: grid;
+  gap: 5px;
+  padding: 2px 4px 4px;
+  color: #55717a;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.redesign-side-intro strong {
+  color: #173b47;
+  font-family: "Archivo", sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+}
+
+.dark .redesign-side-intro strong {
+  color: #e6f4f4;
+}
+
+.redesign-side-label {
+  color: #197783;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.redesign-footer {
+  background: #f4f7f8;
+}
+
+.dark .redesign-footer {
+  background: #101a20;
+}
+
+@media (max-width: 900px) {
+  .redesign-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .redesign-secondary {
+    order: 2;
+  }
 }
 
 .stamp {
@@ -161,6 +280,15 @@ textarea:focus-visible {
   }
 
   .ecosort-panel {
-    box-shadow: 3px 3px 0 rgba(32, 38, 43, 0.1) !important;
+    box-shadow: 0 10px 24px rgba(28, 66, 77, 0.07) !important;
+  }
+
+  .scanner-surface {
+    padding: 20px !important;
+  }
+
+  .redesign-intro {
+    padding-top: 38px;
+    padding-bottom: 42px;
   }
 }

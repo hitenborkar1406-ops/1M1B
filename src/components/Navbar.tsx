@@ -18,7 +18,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   return (
     <header className="ecosort-nav sticky top-0 z-40 backdrop-blur-md transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand & SDG Badge */}
         <div className="flex items-center gap-3">
           <div className="ecosort-brand-mark w-10 h-10 flex items-center justify-center">
@@ -29,19 +29,15 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="font-bold text-lg text-slate-900 dark:text-white tracking-tight font-sans">
                 EcoSort<span className="text-emerald-600 dark:text-emerald-400 font-extrabold">.AI</span>
               </span>
-              <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60">
-                <Globe className="w-3 h-3 text-amber-600 dark:text-amber-400" />
-                SDG 12 Aligned
-              </span>
             </div>
           </div>
         </div>
 
         {/* Action Controls & Metrics */}
-        <div className="flex items-center gap-2 sm:gap-2.5">
+        <div className="flex items-center gap-2 sm:gap-3">
           <div className="flex items-center gap-2 sm:gap-3 bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/60 rounded-xl px-2.5 sm:px-3 py-1.5 text-xs transition-colors">
-            <span className="font-semibold text-emerald-800 dark:text-emerald-300">{ecoPoints} eco-points</span>
-            <span className="hidden sm:inline text-slate-600 dark:text-slate-400">{divertedKg.toFixed(2)} kg diverted</span>
+            <span className="font-semibold text-slate-700 dark:text-slate-200">{ecoPoints} pts</span>
+            <span className="hidden sm:inline text-slate-500 dark:text-slate-400">{divertedKg.toFixed(2)} kg diverted</span>
           </div>
 
           {/* Gemini AI Chatbot Launcher */}

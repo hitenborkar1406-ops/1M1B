@@ -275,12 +275,7 @@ export default function App() {
   };
 
   return (
-    <div className="ecosort-shell min-h-screen flex flex-col font-sans antialiased selection:bg-lime-300 selection:text-black transition-colors duration-200">
-      {/* THESIS: EcoSort is an inspection passport, not a generic dashboard: every scan becomes a clear, routeable decision.
-          OWN-WORLD: Crisp coupon stock, ink-black rules, acid-lime action marks, carrier blue records, and red warning stamps.
-          STORY: Identify the object, verify its contamination risk, then route it to the right stream with confidence.
-          FIRST VIEWPORT: The scanner owns the left side; the current passport and impact ledger remain visible beside it.
-          FORM: Airline ticket wallet translated into a campus waste inspection ledger; scan states remain legible and actionable. */}
+    <div className="ecosort-shell redesign-shell min-h-screen flex flex-col font-sans antialiased transition-colors duration-200">
       {/* Top Navigation */}
       <Navbar
         ecoPoints={ecoPoints}
@@ -290,15 +285,18 @@ export default function App() {
         onOpenChat={() => setIsChatOpen(true)}
       />
 
-      <div className="ecosort-status-strip text-white px-4 sm:px-6 py-2.5">
-        <div className="max-w-5xl mx-auto text-center text-xs sm:text-sm font-medium">
-          Identify it. Sort it correctly. Keep useful materials in circulation.
+      <div className="redesign-intro px-4 sm:px-6">
+        <div className="redesign-intro-inner max-w-6xl mx-auto">
+          <div className="redesign-kicker">Waste sorting, without the guesswork</div>
+          <h1 className="redesign-title">What is it, and where does it go?</h1>
+          <p className="redesign-subtitle">Drop in a photo or describe the item. EcoSort gives you one clear next step.</p>
         </div>
       </div>
 
       {/* Main Workspace Layout */}
-      <main className="ecosort-workspace flex-1 w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        <div className="max-w-5xl mx-auto space-y-6">
+      <main className="ecosort-workspace redesign-workspace flex-1 w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div className="redesign-main-grid max-w-6xl mx-auto">
+          <section className="redesign-primary">
             <CameraScanner onAnalyze={handleAnalyze} isLoading={isLoading} />
 
             {currentResult && (
@@ -309,18 +307,26 @@ export default function App() {
                 onOpenChat={() => setIsChatOpen(true)}
               />
             )}
+          </section>
+          <aside className="redesign-secondary">
+            <div className="redesign-side-intro">
+              <span className="redesign-side-label">Your sorting desk</span>
+              <strong>{history.length} items checked</strong>
+              <span>Every correct sort keeps useful material out of landfill.</span>
+            </div>
             <CampusDashboard
               history={history}
               onSelectHistoryItem={(item) => setCurrentResult(item)}
               ecoPoints={ecoPoints}
               divertedKg={divertedKg}
             />
+          </aside>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="py-6 text-center text-xs text-slate-500 dark:text-slate-400">
-        EcoSort AI · Built for 1M1B AI for Sustainability
+      <footer className="redesign-footer py-6 text-center text-xs text-slate-500 dark:text-slate-400">
+        EcoSort AI <span>·</span> 1M1B AI for Sustainability
       </footer>
 
       {/* High Thinking Modal */}
