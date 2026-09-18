@@ -275,7 +275,7 @@ export default function App() {
   };
 
   return (
-    <div className="ecosort-shell redesign-shell min-h-screen flex flex-col font-sans antialiased transition-colors duration-200">
+    <div className="ecosort-shell fresh-shell min-h-screen flex flex-col font-sans antialiased transition-colors duration-200">
       {/* Top Navigation */}
       <Navbar
         ecoPoints={ecoPoints}
@@ -285,18 +285,26 @@ export default function App() {
         onOpenChat={() => setIsChatOpen(true)}
       />
 
-      <div className="redesign-intro px-4 sm:px-6">
-        <div className="redesign-intro-inner max-w-6xl mx-auto">
-          <div className="redesign-kicker">Waste sorting, without the guesswork</div>
-          <h1 className="redesign-title">What is it, and where does it go?</h1>
-          <p className="redesign-subtitle">Drop in a photo or describe the item. EcoSort gives you one clear next step.</p>
+      <div className="fresh-hero px-4 sm:px-6">
+        <div className="fresh-hero-inner max-w-6xl mx-auto">
+          <div className="fresh-hero-copy">
+            <div className="fresh-eyebrow">EcoSort AI / instant material guidance</div>
+            <h1>Make the next bin obvious.</h1>
+            <p>Show us what you’re holding. We’ll identify it, flag the catch, and tell you what to do next.</p>
+          </div>
+          <div className="fresh-hero-note">
+            <span>01</span>
+            <strong>Scan</strong>
+            <span>02</span>
+            <strong>Act</strong>
+          </div>
         </div>
       </div>
 
       {/* Main Workspace Layout */}
-      <main className="ecosort-workspace redesign-workspace flex-1 w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        <div className="redesign-main-grid max-w-6xl mx-auto">
-          <section className="redesign-primary">
+      <main className="ecosort-workspace fresh-workspace flex-1 w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div className="fresh-layout max-w-6xl mx-auto">
+          <section className="fresh-stage">
             <CameraScanner onAnalyze={handleAnalyze} isLoading={isLoading} />
 
             {currentResult && (
@@ -308,11 +316,10 @@ export default function App() {
               />
             )}
           </section>
-          <aside className="redesign-secondary">
-            <div className="redesign-side-intro">
-              <span className="redesign-side-label">Your sorting desk</span>
-              <strong>{history.length} items checked</strong>
-              <span>Every correct sort keeps useful material out of landfill.</span>
+          <aside className="fresh-rail">
+            <div className="fresh-rail-heading">
+              <span>SESSION SIGNAL</span>
+              <strong>{history.length} checks</strong>
             </div>
             <CampusDashboard
               history={history}
@@ -325,8 +332,8 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="redesign-footer py-6 text-center text-xs text-slate-500 dark:text-slate-400">
-        EcoSort AI <span>·</span> 1M1B AI for Sustainability
+      <footer className="fresh-footer py-6 text-center text-xs text-slate-500 dark:text-slate-400">
+        Designed for clearer everyday sorting <span>·</span> 1M1B
       </footer>
 
       {/* High Thinking Modal */}
