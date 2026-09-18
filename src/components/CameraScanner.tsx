@@ -144,11 +144,11 @@ export const CameraScanner: React.FC<CameraScannerProps> = ({ onAnalyze, isLoadi
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm p-5 sm:p-6 transition-colors duration-200">
+    <div className="ecosort-panel scanner-surface bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 transition-colors duration-200">
       {/* Header bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-800">
         <div>
-          <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <h2 className="ecosort-heading text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <ScanLine className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
             AI Waste Inspection & Multimodal Scanner
           </h2>
@@ -211,7 +211,7 @@ export const CameraScanner: React.FC<CameraScannerProps> = ({ onAnalyze, isLoadi
                 onDragOver={(e) => e.preventDefault()}
                 onDrop={handleDrop}
                 onClick={() => fileInputRef.current?.click()}
-                className="group border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-400 rounded-2xl p-8 sm:p-10 text-center cursor-pointer transition-colors bg-slate-50/50 dark:bg-slate-850/50 hover:bg-emerald-50/20 dark:hover:bg-emerald-950/20"
+                className="scanner-dropzone group p-8 sm:p-10 text-center cursor-pointer transition-colors"
               >
                 <input
                   ref={fileInputRef}
@@ -372,7 +372,7 @@ export const CameraScanner: React.FC<CameraScannerProps> = ({ onAnalyze, isLoadi
               id={`preset-${preset.id}`}
               type="button"
               onClick={() => handleSelectPreset(preset)}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs bg-slate-100/80 dark:bg-slate-800/80 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 hover:text-emerald-800 dark:hover:text-emerald-300 hover:border-emerald-200 dark:hover:border-emerald-800 border border-slate-200/80 dark:border-slate-700/80 text-slate-700 dark:text-slate-300 transition-all"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs bg-slate-100/80 dark:bg-slate-800/80 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 hover:text-emerald-950 dark:hover:text-emerald-200 hover:border-emerald-200 dark:hover:border-emerald-800 border border-slate-200/80 dark:border-slate-700/80 text-slate-700 dark:text-slate-300 transition-all"
             >
               <img
                 src={preset.image}

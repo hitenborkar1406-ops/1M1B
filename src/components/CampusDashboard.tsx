@@ -63,10 +63,10 @@ export const CampusDashboard: React.FC<CampusDashboardProps> = ({
   });
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm p-5 sm:p-6 space-y-6 transition-colors duration-200">
+    <div className="ecosort-panel ledger-panel bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 space-y-6 transition-colors duration-200">
       <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
         <div>
-          <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+          <h3 className="ecosort-heading text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
             Campus Impact Metrics & Audit Ledger
           </h3>

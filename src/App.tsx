@@ -278,7 +278,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100/70 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans antialiased selection:bg-emerald-100 dark:selection:bg-emerald-900 selection:text-emerald-900 dark:selection:text-emerald-100 transition-colors duration-200">
+    <div className="ecosort-shell min-h-screen flex flex-col font-sans antialiased selection:bg-lime-300 selection:text-black transition-colors duration-200">
+      {/* THESIS: EcoSort is an inspection passport, not a generic dashboard: every scan becomes a clear, routeable decision.
+          OWN-WORLD: Crisp coupon stock, ink-black rules, acid-lime action marks, carrier blue records, and red warning stamps.
+          STORY: Identify the object, verify its contamination risk, then route it to the right stream with confidence.
+          FIRST VIEWPORT: The scanner owns the left side; the current passport and impact ledger remain visible beside it.
+          FORM: Airline ticket wallet translated into a campus waste inspection ledger; scan states remain legible and actionable. */}
       {/* Top Navigation */}
       <Navbar
         ecoPoints={ecoPoints}
@@ -295,7 +300,7 @@ export default function App() {
       />
 
       {/* Hero SDG Alignment & Purpose Strip */}
-      <div className="bg-gradient-to-r from-emerald-800 via-teal-900 to-slate-900 dark:from-emerald-950 dark:via-slate-900 dark:to-slate-950 text-white py-4 px-4 sm:px-6 shadow-inner border-b border-emerald-700/40 dark:border-slate-800/80 transition-colors duration-200">
+      <div className="ecosort-status-strip text-white py-4 px-4 sm:px-6 shadow-inner transition-colors duration-200">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
           <div className="flex items-center gap-2.5">
             <span className="px-2.5 py-1 rounded-md bg-white/10 dark:bg-emerald-500/20 font-mono font-bold text-emerald-300 border border-white/10 dark:border-emerald-500/30">
@@ -337,7 +342,7 @@ export default function App() {
       </div>
 
       {/* Main Workspace Layout */}
-      <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+      <main className="ecosort-workspace flex-1 w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* Left Column (Scanner & Active Result) - 7 cols on lg */}
           <div className="lg:col-span-7 space-y-6">
@@ -363,7 +368,7 @@ export default function App() {
             />
 
             {/* Quick 1M1B Framework Card */}
-            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm p-5 space-y-4 transition-colors duration-200">
+            <div className="ecosort-panel framework-panel bg-white dark:bg-slate-900 rounded-2xl p-5 space-y-4 transition-colors duration-200">
               <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-200/50 dark:border-emerald-800/60 flex items-center justify-center font-bold text-xs">

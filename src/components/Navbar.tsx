@@ -23,11 +23,11 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenChat,
 }) => {
   return (
-    <header className="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-emerald-100 dark:border-slate-800 shadow-xs transition-colors duration-200">
+    <header className="ecosort-nav sticky top-0 z-40 backdrop-blur-md transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand & SDG Badge */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-sm shadow-emerald-500/20">
+          <div className="ecosort-brand-mark w-10 h-10 flex items-center justify-center">
             <Recycle className="w-5 h-5 animate-pulse" />
           </div>
           <div>

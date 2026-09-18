@@ -1,3 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  color: #20262b;
+  background: #eef1ed;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #eef1ed;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #e8c547;
+  outline-offset: 3px;
+}
+
+.font-display {
+  font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
+}
+
+.ecosort-shell {
+  background: transparent !important;
+  color: #20262b !important;
+}
+
+.dark .ecosort-shell {
+  background: #131a1d !important;
+  color: #f4f6f1 !important;
+}
+
+.ecosort-nav {
+  background: #f7f8f4 !important;
+  border-bottom: 1px solid #c7cfca !important;
+  box-shadow: 0 8px 24px rgba(32, 38, 43, 0.06) !important;
+}
+
+.dark .ecosort-nav {
+  background: #182124 !important;
+  border-color: #334147 !important;
+}
+
+.ecosort-brand-mark {
+  background: #d7f35f !important;
+  color: #20262b !important;
+  border-radius: 10px !important;
+  box-shadow: 4px 4px 0 #20262b !important;
+}
+
+.ecosort-status-strip {
+  background: #20262b !important;
+  border-bottom: 4px solid #d7f35f !important;
+}
+
+.ecosort-workspace {
+  max-width: 1440px !important;
+  padding-top: 30px !important;
+  padding-bottom: 56px !important;
+}
+
+.ecosort-panel {
+  border-radius: 10px !important;
+  border: 1px solid #c7cfca !important;
+  box-shadow: 6px 6px 0 rgba(32, 38, 43, 0.1) !important;
+}
+
+.dark .ecosort-panel {
+  border-color: #334147 !important;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.28) !important;
+}
+
+.ecosort-heading {
+  font-family: "Archivo", ui-sans-serif, system-ui, sans-serif !important;
+  letter-spacing: -0.045em !important;
+}
+
+.ecosort-kicker {
+  font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.scanner-surface {
+  background: #f7f8f4 !important;
+  border-top: 5px solid #d7f35f !important;
+}
+
+.dark .scanner-surface {
+  background: #182124 !important;
+}
+
+.scanner-dropzone {
+  background: #e9eee8 !important;
+  border: 2px dashed #9eaaa3 !important;
+  border-radius: 8px !important;
+}
+
+.dark .scanner-dropzone {
+  background: #202b2f !important;
+  border-color: #526169 !important;
+}
+
+.scanner-dropzone:hover {
+  border-color: #20262b !important;
+  background: #e4edb1 !important;
+}
+
+.passport-result {
+  border-top: 5px solid #e64b3c !important;
+}
+
+.ledger-panel {
+  border-top: 5px solid #3974a8 !important;
+}
+
+.framework-panel {
+  border-top: 5px solid #e8c547 !important;
+}
+
+.stamp {
+  border: 2px solid currentColor;
+  transform: rotate(-2deg);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.ticket-rule {
+  border-top: 1px dashed #9eaaa3;
+}
+
+.dark .ticket-rule {
+  border-color: #526169;
+}
+
+@media (max-width: 640px) {
+  .ecosort-workspace {
+    padding-top: 18px !important;
+  }
+
+  .ecosort-panel {
+    box-shadow: 3px 3px 0 rgba(32, 38, 43, 0.1) !important;
+  }
+}

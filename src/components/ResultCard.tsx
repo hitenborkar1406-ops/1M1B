@@ -80,7 +80,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({
   const binStyle = getBinBadgeStyle(result.binColorCode);
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm overflow-hidden transition-colors duration-200">
+    <div className="ecosort-panel passport-result bg-white dark:bg-slate-900 rounded-2xl overflow-hidden transition-colors duration-200">
       {/* Top Banner with Bin Allocation */}
       <div className="px-5 sm:px-6 py-4 bg-slate-900 dark:bg-slate-950 text-white flex flex-wrap items-center justify-between gap-3 border-b dark:border-slate-800">
         <div className="flex items-center gap-3">
@@ -90,8 +90,8 @@ export const ResultCard: React.FC<ResultCardProps> = ({
             <Trash2 className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[11px] uppercase tracking-wider font-semibold text-slate-400">
-              Optimal Receptacle Destination
+            <span className="ecosort-kicker text-slate-400">
+              Routing stamp
             </span>
             <h3 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
               {result.binName}
